@@ -9,7 +9,7 @@ using namespace std;
 class Map
 {
   public:
-    Map(ifstream mapFile);
+    Map(ifstream &mapFile);
     ~Map();
     void Print();
     void SetMapPositionValue(int i, int j, char newContent);

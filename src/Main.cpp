@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Test.hpp"
-#include "Map.hpp"
+#include "Test.h"
+#include "Map.h"
 using namespace std;
 
 int main(int argc, char* argv[]) {
@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
   if (commandFile.is_open())
     throw  "Erro ao abrir arquivo de comandos";
 
-  Map map = new Map(mapFile);
+  Map map(mapFile);
 
   Test* pTest = new Test();
   pTest->Print();

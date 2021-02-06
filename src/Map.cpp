@@ -1,9 +1,9 @@
 #include <iostream>
 #include <fstream>
-#include "include/Map.hpp"
+#include "Map.h"
 using namespace std;
 
-Map::Map(ifstream mapFile) {
+Map::Map(ifstream &mapFile) {
 
   mapFile >> xSize;
   mapFile >> ySize;
@@ -11,7 +11,7 @@ Map::Map(ifstream mapFile) {
   map = new char*[xSize];
 
   for (int k = 0; k < xSize; k++)
-    map[i] = new char[ySize];
+    map[k] = new char[ySize];
 
   for (int i = 0; i < xSize; i++) {
     for (int j = 0; j < ySize; j++) {
@@ -36,7 +36,7 @@ void Map::Print() {
   }
 }
 void Map::SetMapPositionValue(int i, int j, char newContent) {
-  map[i][j] = newContent
+  map[i][j] = newContent;
 }
 bool Map::CheckPositionForObstacle(int i, int j) {
   return map[i][j] == 'O';
