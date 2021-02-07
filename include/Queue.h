@@ -8,8 +8,9 @@ class Queue : public List<T>
 {
     public:
         Queue() : List() {}
-        void Push(T item);
-        T Pop();
+        ~Queue() : ~List() {}
+        void EnQueue(T item);
+        T DeQueue();
 };
 
 #endif
