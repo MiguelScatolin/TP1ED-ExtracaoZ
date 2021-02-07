@@ -1,4 +1,5 @@
 #include "Command.h"
+#include <string>
 
-void Command::Command() {
+Command::Command(std::string commandString) {
 };

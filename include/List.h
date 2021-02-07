@@ -19,7 +19,7 @@ class List
 
         void InsertAfter(T item);
         void InsertBefore(T item);
-        virtual T RemoveFirst();
+        T RemoveFirst();
 };
 
 #endif

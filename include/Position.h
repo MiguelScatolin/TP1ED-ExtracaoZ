@@ -11,7 +11,7 @@ class Position
         int x;
         int y;
 
-    friend class Robot;
+    friend class Map;
 };
 
 #endif

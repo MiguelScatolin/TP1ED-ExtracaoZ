@@ -1,20 +1,18 @@
 #ifndef NODE_H
 #define NODE_H
 
-#include "List.h"
-
-template <class T>
+template<class T>
 class Node
 {
     public:
         Node();
         Node(T item) : item(item) {}
+        T GetItem() { return item; };
+        Node<T>* GetNext() { return next; };
 
     private:
         T item;
-        Node *next;
-
-    friend class List;
+        Node<T> *next;
 };
 
 #endif

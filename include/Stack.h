@@ -3,12 +3,11 @@
 
 #include "List.h"
 
-template <class T>
+template<class T>
 class Stack : public List<T>
 {
     public:
-        Stack() : List() {}
-        ~Stack() : ~List() {}
+        Stack() : List<T>() {}
         void Push(T item);
         T Pop();
 };

@@ -38,10 +38,10 @@ void Map::Print() {
   }
 }
 
-void Map::SetMapPositionValue(int i, int j, char newContent) {
-  map[i][j] = newContent;
+void Map::SetMapPositionValue(Position position, char newContent) {
+  map[position.x][position.y] = newContent;
 }
 
-bool Map::CheckPositionForObstacle(int i, int j) {
-  return map[i][j] == 'O';
+bool Map::CheckPositionForObstacle(Position position) {
+  return map[position.x][position.y] == 'O';
 }

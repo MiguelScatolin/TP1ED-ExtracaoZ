@@ -3,12 +3,11 @@
 
 #include "List.h"
 
-template <class T>
+template<class T>
 class Queue : public List<T>
 {
     public:
-        Queue() : List() {}
-        ~Queue() : ~List() {}
+        Queue() : List<T>() {};
         void EnQueue(T item);
         T DeQueue();
 };

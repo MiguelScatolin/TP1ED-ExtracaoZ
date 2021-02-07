@@ -2,6 +2,7 @@
 #define COMMAND_H
 
 #include "Position.h"
+#include <string>
 
 enum CommandEnum
 {

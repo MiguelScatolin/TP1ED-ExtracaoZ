@@ -13,8 +13,8 @@ Base::~Base() {
 };
 
 void Base::ExecuteCommands(Map *map) {
-    while(!commands.IsEmpy()) {
-        Command command = commands.Pop();
+    while(!commands.IsEmpty()) {
+        Command command = commands.DeQueue();
 
        switch (command.command) {
             case ACTIVATE:
