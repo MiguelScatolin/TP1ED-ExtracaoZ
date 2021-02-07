@@ -10,6 +10,7 @@ class Queue : List<T>
         Queue();
         void Push(T item);
         T Pop();
+        bool IsEmpy();
 
     private:
         Node<T> *head;
