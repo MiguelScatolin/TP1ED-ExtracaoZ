@@ -37,9 +37,11 @@ void Map::Print() {
     cout << endl;
   }
 }
+
 void Map::SetMapPositionValue(int i, int j, char newContent) {
   map[i][j] = newContent;
 }
+
 bool Map::CheckPositionForObstacle(int i, int j) {
   return map[i][j] == 'O';
 }

@@ -1,8 +1,8 @@
 #include <iostream>
 #include <fstream>
-#include "Test.h"
+#include <string>
 #include "Map.h"
-using namespace std;
+#include "Base.h"
 
 int main(int argc, char* argv[]) {
   if(argc < 3)
@@ -17,6 +17,11 @@ int main(int argc, char* argv[]) {
     throw  "Erro ao abrir arquivo de comandos";
 
   Map map(mapFile);
+  Base base(commandFile);
+
+  base.ExecuteCommands();
+
+  base.FinalReport();
 
   return 0;
 }
