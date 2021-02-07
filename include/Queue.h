@@ -3,19 +3,13 @@
 
 #include "List.h"
 
-template <typename T>
-class Queue : List<T>
+template <class T>
+class Queue : public List<T>
 {
     public:
-        Queue();
+        Queue() : List() {}
         void Push(T item);
         T Pop();
-        bool IsEmpy();
-
-    private:
-        Node<T> *head;
-        Node<T> *tail;
-        int size;
 };
 
 #endif

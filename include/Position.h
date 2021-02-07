@@ -4,6 +4,7 @@
 class Position
 {
     public:
+        Position() {}
         Position(int x, int y) : x(x), y(y) {}
 
     private:

@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
   Map map(mapFile);
   Base base(commandFile);
 
-  base.ExecuteCommands(map);
+  base.ExecuteCommands(&map);
 
   base.FinalReport();
 

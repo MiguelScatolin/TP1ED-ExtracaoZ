@@ -12,7 +12,7 @@ class Base
         Base(std::ifstream &commandFile);
         ~Base();
         void FinalReport();
-        void ExecuteCommands(const Map &map);
+        void ExecuteCommands(Map *map);
 
     private:
         int resources;
@@ -20,7 +20,7 @@ class Base
         Robot *robots[50];
         Queue<Command> commands;
 
-        void ActivateRobot(int robotNumber, const Map &map);
+        void ActivateRobot(int robotNumber, Map *map);
         void ReturnRobot(int robotNumber);
 };
 

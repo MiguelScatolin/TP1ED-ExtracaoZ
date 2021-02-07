@@ -1,12 +1,33 @@
 #include "Robot.h"
+#include <iostream>
 #include "Map.h"
 
+Robot::Robot(int robotNumber, Map *map) {
+    resources = 0;
+    number = robotNumber;
+    aliens = 0;
+    position = Position(0, 0);
+    currentMap = map;
+}
+
+void Robot::AddCommand(Command command) {
+    if(command.isPriority)
+        priorityCommands.Push(command);
+    else
+        commands.Push(command);
+}
 
 void Robot::ExecuteCommands() {
-    while(!commands.IsEmpy()) {
+    while(!priorityCommands.IsEmpty()) {
         Command command = commands.Pop();
+    }
+    while(!commands.IsEmpty()) {
+        Command command = commands.Pop();
+    }
+};
 
-        switch (command.command) {
+void Robot::ExecuteCommand(Command command) {
+    switch (command.command) {
             case COLLECT:
                 CollectResource();
                 break;
@@ -19,11 +40,10 @@ void Robot::ExecuteCommands() {
             default:
                 break;
         }
-    }
-};
+}
 
 void Robot::CollectResource() {
-    if(map->CollectResource(position)) {
+    if(currentMap->CollectResource(position)) {
         resources++;
         commandHistory.Push("RECURSOS COLETADOS EM (i,j)");
     }
@@ -31,7 +51,7 @@ void Robot::CollectResource() {
 }
 
 void Robot::Move(Position newPosition) {
-    if(!map->CheckPositionForObstacle(newPosition)) {
+    if(!currentMap->CheckPositionForObstacle(newPosition)) {
         position = newPosition;
         commandHistory.Push("ROBO k: MOVEU PARA (i,j)");
     }
@@ -40,9 +60,15 @@ void Robot::Move(Position newPosition) {
 
 
 void Robot::EliminateAlien() {
-    if(map->EliminateAlien(position)) {
+    if(currentMap->EliminateAlien(position)) {
         resources++;
         commandHistory.Push("ROBO k: ALIEN ELIMINADO EM (i,j)");
     }
     commandHistory.Push("ROBO k: IMPOSSIVEL ELIMINAR ALIEN EM (i,j)");
+}
+
+void Robot::Report() {
+    while(!commandHistory.IsEmpty()) {
+        std::cout << commandHistory.Pop() << std::endl;
+    }
 }

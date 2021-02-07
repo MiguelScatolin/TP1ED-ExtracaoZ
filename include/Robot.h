@@ -4,12 +4,13 @@
 #include "Command.h"
 #include "Position.h"
 #include "Queue.h"
+#include "Stack.h"
 #include "Map.h"
 
 class Robot
 {
     public:
-        Robot(int number, const Map &map);
+        Robot(int robotNumber, Map *currentMap);
         ~Robot();
         void AddCommand(Command command);
         void ExecuteCommands();
@@ -21,12 +22,14 @@ class Robot
         int aliens;
         Position position;
         Queue<Command> commands;
+        Stack<Command> priorityCommands;
         Queue<std::string> commandHistory;
-        Map *map;
+        Map *currentMap;
 
         void CollectResource();
         void Move(Position newPosition);
         void EliminateAlien();
+        void ExecuteCommand(Command command);
 
     friend class Base;
 };
