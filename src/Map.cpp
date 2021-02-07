@@ -18,6 +18,8 @@ Map::Map(ifstream &mapFile) {
       mapFile >> map[i][j];
     }
   }
+
+  Print();
 }
 
 Map::~Map() {

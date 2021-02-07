@@ -1,18 +1,15 @@
 #include <iostream>
 #include <fstream>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "Test.h"
 #include "Map.h"
 using namespace std;
 
 int main(int argc, char* argv[]) {
-  if(argc < 2)
+  if(argc < 3)
     throw "Nome do arquivo de mapa ou de comandos não informado.";
 
-  ifstream mapFile(argv[0]);
-  ifstream commandFile(argv[1]);
+  ifstream mapFile(argv[1]);
+  ifstream commandFile(argv[2]);
 
   if (mapFile.is_open())
     throw  "Erro ao abrir arquivo de mapa";
@@ -21,7 +18,5 @@ int main(int argc, char* argv[]) {
 
   Map map(mapFile);
 
-  Test* pTest = new Test();
-  pTest->Print();
   return 0;
 }
