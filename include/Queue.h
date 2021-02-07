@@ -10,6 +10,11 @@ class Queue : List<T>
         Queue();
         void Push(T item);
         T Pop();
+
+    private:
+        Node<T> *head;
+        Node<T> *tail;
+        int size;
 };
 
 #endif
