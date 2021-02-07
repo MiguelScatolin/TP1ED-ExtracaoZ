@@ -1,1 +1,4 @@
-//List<Command> createCommandList(FILE *commandFile);
+#include "Command.h"
+
+void Command::Command() {
+};

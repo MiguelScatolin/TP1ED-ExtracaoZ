@@ -1,19 +1,19 @@
 #ifndef MAP_H
 #define MAP_H
 
-#include <stdio.h>
-#include <iostream>
 #include <fstream>
-using namespace std;
+#include "Position.h"
 
 class Map
 {
   public:
-    Map(ifstream &mapFile);
+    Map(std::ifstream &mapFile);
     ~Map();
     void Print();
-    void SetMapPositionValue(int i, int j, char newContent);
-    bool CheckPositionForObstacle(int i, int j);
+    void SetMapPositionValue(Position position, char newContent);
+    bool CheckPositionForObstacle(Position position);
+    bool EliminateAlien(Position position);
+    bool CollectResource(Position position);
 
   private:
     int xSize;

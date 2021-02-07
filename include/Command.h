@@ -1,19 +1,32 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 
-#include <string>
 #include "Position.h"
+
+enum CommandEnum
+{
+    ACTIVATE,
+    COLLECT,
+    EXECUTE,
+    MOVE,
+    ELIMINATE,
+    REPORT,
+    RETURN,
+};
 
 class Command
 {
-    Command(std::string commandString);
-    void Execute();
+    public:
+        Command(std::string commandString);
 
     private:
-        std::string command;
+        CommandEnum command;
         int robotNumber;
         Position position;
         bool isPriority;
+
+    friend class Base;
+    friend class Robot;
 };
 
 #endif

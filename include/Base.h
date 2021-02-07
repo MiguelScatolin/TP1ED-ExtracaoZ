@@ -10,16 +10,17 @@ class Base
 {
     public:
         Base(std::ifstream &commandFile);
+        ~Base();
         void FinalReport();
-        void ExecuteCommands(Map map);
+        void ExecuteCommands(const Map &map);
 
     private:
         int resources;
         int aliens;
-        Robot *position[50];
+        Robot *robots[50];
         Queue<Command> commands;
 
-        void ActivateRobot(int robotNumber);
+        void ActivateRobot(int robotNumber, const Map &map);
         void ReturnRobot(int robotNumber);
 };
 
