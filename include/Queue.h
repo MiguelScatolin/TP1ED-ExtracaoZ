@@ -14,7 +14,7 @@ class Queue : public List<T>
 
 template<class T>
 void Queue<T>::EnQueue(T item)  {
-    this->InsertBefore(item);
+    this->InsertAfter(item);
 }
 
 template<class T>

@@ -48,12 +48,12 @@ int List<T>::GetSize() {
 
 template<class T>
 bool List<T>::IsEmpty() {
-    return size ==0;
+    return size == 0;
 }
 
 template<class T>
 void List<T>::InsertAfter(T item)  {
-    Node<T> *newNode(item);
+    Node<T> *newNode = new Node<T>(item);
 
     tail->SetNext(newNode);
     tail = newNode;
