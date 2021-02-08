@@ -32,10 +32,12 @@ void Base::ExecuteCommands(Map *map) {
                 ReturnRobot(command.robotNumber);
                 break;
             case REPORT:
-                robots[command.robotNumber]->Report();
+                if(robots[command.robotNumber] != nullptr)
+                    robots[command.robotNumber]->Report();
                 break;
             default:
-                robots[command.robotNumber]->AddCommand(command);
+                if(robots[command.robotNumber] != nullptr)
+                    robots[command.robotNumber]->AddCommand(command);
                 break;
         }
     }

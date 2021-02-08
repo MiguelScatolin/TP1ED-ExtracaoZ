@@ -92,6 +92,9 @@ T List<T>::RemoveFirst() {
 
 template<class T>
 void List<T>::Print() {
+    if(IsEmpty())
+        return;
+
     Node<T> *p;
     p = head->GetNext();
     while(p != nullptr) {
