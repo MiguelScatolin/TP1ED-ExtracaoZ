@@ -29,6 +29,7 @@ class Robot
         void Move(Position newPosition);
         void EliminateAlien();
         void ExecuteCommand(Command command);
+        void AddCommandHistory(std::string newCommandHistory);
 
     friend class Base;
 };

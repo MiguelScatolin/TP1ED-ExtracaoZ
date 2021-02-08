@@ -42,29 +42,39 @@ void Robot::ExecuteCommand(Command command) {
         }
 }
 
+void Robot::AddCommandHistory(std::string newCommandHistory) {
+    commandHistory.EnQueue("ROBO " + number + ' ' + newCommandHistory);
+}
+
 void Robot::CollectResource() {
+    std::string positionString = position.ToString();
     if(currentMap->CollectResource(position)) {
         resources++;
-        commandHistory.EnQueue("RECURSOS COLETADOS EM (i,j)");
+        AddCommandHistory("RECURSOS COLETADOS EM " + positionString);
     }
-    commandHistory.EnQueue("ROBO k: IMPOSSIVEL COLETAR RECURSOS EM (i,j)");
+    else
+        AddCommandHistory("IMPOSSIVEL COLETAR RECURSOS EM " + positionString);
 }
 
 void Robot::Move(Position newPosition) {
+    std::string positionString = position.ToString();
     if(!currentMap->CheckForObstacle(newPosition)) {
         position = newPosition;
-        commandHistory.EnQueue("ROBO k: MOVEU PARA (i,j)");
+        AddCommandHistory("MOVEU PARA " + positionString);
     }
-    commandHistory.EnQueue("ROBO k: IMPOSSIVEL MOVER PARA (i,j)");
+    else
+        AddCommandHistory("IMPOSSIVEL MOVER PARA " + positionString);
 }
 
 
 void Robot::EliminateAlien() {
+    std::string positionString = position.ToString();
     if(currentMap->EliminateAlien(position)) {
         resources++;
-        commandHistory.EnQueue("ROBO k: ALIEN ELIMINADO EM (i,j)");
+        AddCommandHistory("ALIEN ELIMINADO EM " + positionString);
     }
-    commandHistory.EnQueue("ROBO k: IMPOSSIVEL ELIMINAR ALIEN EM (i,j)");
+    else
+        AddCommandHistory("IMPOSSIVEL ELIMINAR ALIEN EM " + positionString);
 }
 
 void Robot::Report() {
