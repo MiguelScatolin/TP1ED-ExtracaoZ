@@ -10,7 +10,6 @@ class Base
 {
     public:
         Base(std::ifstream &commandFile);
-        ~Base();
         void FinalReport();
         void ExecuteCommands(Map *map);
 

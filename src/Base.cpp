@@ -6,14 +6,13 @@
 #define ROBO_STRING "ROBO "
 
 Base::Base(std::ifstream &commandFile) {
-  std::string s;
-  while(getline(commandFile, s)) {
+    resources = 0;
+    aliens = 0;
+    std::string s;
+    while(getline(commandFile, s)) {
         Command command(s);
         commands.EnQueue(command);
     }
-};
-
-Base::~Base() {
 };
 
 void Base::ExecuteCommands(Map *map) {
