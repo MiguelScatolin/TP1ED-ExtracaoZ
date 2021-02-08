@@ -51,7 +51,7 @@ void Base::ReturnRobot(int robotNumber) {
 
     int returnedAliens = robots[robotNumber]->aliens;
     int returnedResources = robots[robotNumber]->resources;
-    delete robots[robotNumber];
+    robots[robotNumber] = nullptr;
 
     std::cout << BASE_STRING << ROBO_STRING << robotNumber << " RETORNOU ALIENS " << returnedAliens << " RECURSOS " << returnedResources << std::endl;
 

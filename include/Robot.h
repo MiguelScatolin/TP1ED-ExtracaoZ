@@ -11,7 +11,6 @@ class Robot
 {
     public:
         Robot(int robotNumber, Map *currentMap);
-        ~Robot();
         void AddCommand(Command command);
         void ExecuteCommands();
         void Report();

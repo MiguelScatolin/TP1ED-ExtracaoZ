@@ -14,12 +14,12 @@ class Queue : public List<T>
 
 template<class T>
 void Queue<T>::EnQueue(T item)  {
-    InsertFirst(item);
+    this->InsertBefore(item);
 }
 
 template<class T>
 T Queue<T>::DeQueue() {
-    return this.RemoveFirst();
+    return this->RemoveFirst();
 }
 
 #endif

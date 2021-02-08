@@ -14,12 +14,12 @@ class Stack : public List<T>
 
 template<class T>
 void Stack<T>::Push(T item)  {
-    InsertFirst(item);
+    this->InsertBefore(item);
 }
 
 template<class T>
 T Stack<T>::Pop() {
-    return this.RemoveFirst();
+    return this->RemoveFirst();
 }
 
 #endif

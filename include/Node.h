@@ -5,10 +5,12 @@ template<class T>
 class Node
 {
     public:
-        Node();
+        Node() {};
         Node(T item) : item(item) {}
         T GetItem() { return item; };
+        void SetItem(T newItem) { item = newItem; };
         Node<T>* GetNext() { return next; };
+        void SetNext(Node<T> *newNext) { next = newNext; };
 
     private:
         T item;

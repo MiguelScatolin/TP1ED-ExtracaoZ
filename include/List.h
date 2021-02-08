@@ -31,11 +31,11 @@ List<T>::List() {
 template<class T>
 List<T>::~List() {
     Node<T> *p;
-    p = head->next;
+    p = head->GetNext();
     while(p != nullptr){
-        head->next = p->next;
+        head->SetNext(p->GetNext());
         delete p;
-        p = head->next;
+        p = head->GetNext();
     }
     size = 0;
     tail = head;
@@ -55,20 +55,20 @@ template<class T>
 void List<T>::InsertAfter(T item)  {
     Node<T> *newNode(item);
 
-    tail->next = newNode;
+    tail->SetNext(newNode);
     tail = newNode;
     size++;
 }
 
 template<class T>
 void List<T>::InsertBefore(T item) {
-    Node<T> *newNode(item);
+    Node<T> *newNode = new Node<T>(item);
 
-    newNode->next = head->next;
-    head->next = newNode;
+    newNode->SetNext(head->GetNext());
+    head->SetNext(newNode);
 
     size++;
-    if(newNode->next == nullptr)
+    if(newNode->GetNext() == nullptr)
         tail = newNode;
 }
 
@@ -80,9 +80,9 @@ T List<T>::RemoveFirst() {
     Node<T> *p;
     T poppedItem;
 
-    poppedItem = head->item;
+    poppedItem = head->GetItem();
     p = head;
-    head = head->prox;
+    head = head->GetNext();
     delete p;
     size--;
     return poppedItem;

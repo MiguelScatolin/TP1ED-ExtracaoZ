@@ -18,6 +18,7 @@ enum CommandEnum
 class Command
 {
     public:
+        Command() {};
         Command(std::string commandString);
 
     private:
