@@ -1,5 +1,6 @@
 #include "Robot.h"
 #include <iostream>
+#include <string>
 #include "Map.h"
 
 Robot::Robot(int robotNumber, Map *map) {
@@ -43,7 +44,7 @@ void Robot::ExecuteCommand(Command command) {
 }
 
 void Robot::AddCommandHistory(std::string newCommandHistory) {
-    commandHistory.EnQueue("ROBO " + number + ' ' + newCommandHistory);
+    commandHistory.EnQueue("ROBO " + std::to_string(number) + ": " + newCommandHistory);
 }
 
 void Robot::CollectResource() {
@@ -57,7 +58,7 @@ void Robot::CollectResource() {
 }
 
 void Robot::Move(Position newPosition) {
-    std::string positionString = position.ToString();
+    std::string positionString = newPosition.ToString();
     if(!currentMap->CheckForObstacle(newPosition)) {
         position = newPosition;
         AddCommandHistory("MOVEU PARA " + positionString);
@@ -70,7 +71,7 @@ void Robot::Move(Position newPosition) {
 void Robot::EliminateAlien() {
     std::string positionString = position.ToString();
     if(currentMap->EliminateAlien(position)) {
-        resources++;
+        aliens++;
         AddCommandHistory("ALIEN ELIMINADO EM " + positionString);
     }
     else

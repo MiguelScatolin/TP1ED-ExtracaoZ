@@ -8,6 +8,8 @@
 Base::Base(std::ifstream &commandFile) {
     resources = 0;
     aliens = 0;
+    for(int i =0; i<50; i++)
+        robots[i] = nullptr;
     std::string s;
     while(getline(commandFile, s)) {
         Command command(s);
@@ -49,8 +51,10 @@ void Base::ActivateRobot(int robotNumber, Map *map) {
 };
 
 void Base::ReturnRobot(int robotNumber) {
-    if(robots[robotNumber] == nullptr)
+    if(robots[robotNumber] == nullptr) {
         std::cout << BASE_STRING << ROBO_STRING << robotNumber << " NAO ESTA EM MISSAO" << std::endl;
+        return;
+    }
 
     int returnedAliens = robots[robotNumber]->aliens;
     int returnedResources = robots[robotNumber]->resources;

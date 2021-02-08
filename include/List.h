@@ -26,6 +26,7 @@ template<class T>
 List<T>::List() {
     size = 0;
     head = new Node<T>();
+    tail = head;
 }
 
 template<class T>
@@ -80,7 +81,7 @@ T List<T>::RemoveFirst() {
     Node<T> *p;
     T poppedItem;
 
-    poppedItem = head->GetItem();
+    poppedItem = head->GetNext()->GetItem();
     p = head;
     head = head->GetNext();
     delete p;
