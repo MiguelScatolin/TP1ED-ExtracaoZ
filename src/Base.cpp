@@ -6,7 +6,11 @@
 #define ROBO_STRING "ROBO "
 
 Base::Base(std::ifstream &commandFile) {
-
+  std::string s;
+  while(getline(commandFile, s)) {
+        Command command(s);
+        commands.EnQueue(command);
+    }
 };
 
 Base::~Base() {
