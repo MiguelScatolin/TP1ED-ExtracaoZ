@@ -51,7 +51,7 @@ void Robot::CollectResource() {
 }
 
 void Robot::Move(Position newPosition) {
-    if(!currentMap->CheckPositionForObstacle(newPosition)) {
+    if(!currentMap->CheckForObstacle(newPosition)) {
         position = newPosition;
         commandHistory.EnQueue("ROBO k: MOVEU PARA (i,j)");
     }

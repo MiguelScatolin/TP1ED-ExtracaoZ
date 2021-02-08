@@ -38,10 +38,30 @@ void Map::Print() {
   }
 }
 
-void Map::SetMapPositionValue(Position position, char newContent) {
+bool Map::CheckPosition(Position position, char newContent) {
+  return map[position.x][position.y] == newContent;
+}
+
+void Map::SetPosition(Position position, char newContent) {
   map[position.x][position.y] = newContent;
 }
 
-bool Map::CheckPositionForObstacle(Position position) {
-  return map[position.x][position.y] == 'O';
+bool Map::CheckForObstacle(Position position) {
+  return CheckPosition(position, 'O');
+}
+
+bool Map::EliminateAlien(Position position) {
+  if(!CheckPosition(position, 'H'))
+    return false;
+
+  SetPosition(position, '.');
+  return true;
+}
+
+bool Map::CollectResource(Position position) {
+  if(!CheckPosition(position, 'R'))
+    return false;
+
+  SetPosition(position, '.');
+  return true;
 }

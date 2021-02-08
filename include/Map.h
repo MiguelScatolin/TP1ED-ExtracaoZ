@@ -10,8 +10,7 @@ class Map
     Map(std::ifstream &mapFile);
     ~Map();
     void Print();
-    void SetMapPositionValue(Position position, char newContent);
-    bool CheckPositionForObstacle(Position position);
+    bool CheckForObstacle(Position position);
     bool EliminateAlien(Position position);
     bool CollectResource(Position position);
 
@@ -19,6 +18,8 @@ class Map
     int xSize;
     int ySize;
     char **map;
+    void SetPosition(Position position, char newContent);
+    bool CheckPosition(Position position, char newContent);
 };
 
 #endif
