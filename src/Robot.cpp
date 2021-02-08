@@ -44,7 +44,7 @@ void Robot::ExecuteCommand(Command command) {
 }
 
 void Robot::AddCommandHistory(std::string newCommandHistory) {
-    commandHistory.EnQueue("ROBO " + std::to_string(number) + ": " + newCommandHistory);
+    commandHistory.InsertAfter("ROBO " + std::to_string(number) + ": " + newCommandHistory);
 }
 
 void Robot::CollectResource() {
@@ -79,7 +79,5 @@ void Robot::EliminateAlien() {
 }
 
 void Robot::Report() {
-    while(!commandHistory.IsEmpty()) {
-        std::cout << commandHistory.DeQueue() << std::endl;
-    }
+    commandHistory.Print();
 }

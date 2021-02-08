@@ -1,6 +1,7 @@
 #ifndef LIST_H
 #define LIST_H
 
+#include <iostream>
 #include "Node.h"
 
 template <class T>
@@ -11,15 +12,15 @@ class List
         ~List();
         int GetSize();
         bool IsEmpty();
+        void InsertAfter(T item);
+        void InsertBefore(T item);
+        T RemoveFirst();
+        void Print();
 
     protected:
         Node<T> *head;
         Node<T> *tail;
         int size;
-
-        void InsertAfter(T item);
-        void InsertBefore(T item);
-        T RemoveFirst();
 };
 
 template<class T>
@@ -87,6 +88,17 @@ T List<T>::RemoveFirst() {
     delete p;
     size--;
     return poppedItem;
+}
+
+template<class T>
+void List<T>::Print() {
+    Node<T> *p;
+    p = head->GetNext();
+    while(p != nullptr) {
+        std::string s(p->GetItem());
+        std::cout << s << std::endl;
+        p = p->GetNext();
+    }
 }
 
 #endif

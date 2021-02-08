@@ -22,7 +22,7 @@ class Robot
         Position position;
         Queue<Command> commands;
         Stack<Command> priorityCommands;
-        Queue<std::string> commandHistory;
+        List<std::string> commandHistory;
         Map *currentMap;
 
         void CollectResource();

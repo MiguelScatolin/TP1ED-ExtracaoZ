@@ -6,7 +6,7 @@ class Node
 {
     public:
         Node() {};
-        Node(T item) : item(item) {}
+        Node(T item) : item(item), next(nullptr) {}
         T GetItem() { return item; };
         void SetItem(T newItem) { item = newItem; };
         Node<T>* GetNext() { return next; };
