@@ -9,22 +9,22 @@ Command::Command(std::string commandString) {
         iss.ignore(1);
     }
 
-    std::string commandString;
-    iss >> commandString;
+    std::string instruction;
+    iss >> instruction;
 
-    if(commandString == "MOVER")
+    if(instruction == "MOVER")
         command = MOVE;
-    else if(commandString == "COLETAR")
+    else if(instruction == "COLETAR")
         command = COLLECT;
-    else if(commandString == "ELIMINAR")
+    else if(instruction == "ELIMINAR")
         command = ELIMINATE;
-    else if(commandString == "ATIVAR")
+    else if(instruction == "ATIVAR")
         command = ACTIVATE;
-    else if(commandString == "EXECUTAR")
+    else if(instruction == "EXECUTAR")
         command = EXECUTE;
-    else if(commandString == "RELATORIO")
+    else if(instruction == "RELATORIO")
         command = REPORT;
-    else if(commandString == "RETORNAR")
+    else if(instruction == "RETORNAR")
         command = RETURN;
     else
         throw "Comando não reconhecido";
