@@ -8,9 +8,11 @@ Command::Command(std::string commandString) {
         isPriority = true;
         iss.ignore(1);
     }
+    else
+        isPriority = false;
 
     std::string instruction;
-    iss >> instruction;
+    std::getline(iss, instruction, ' ');
 
     if(instruction == "MOVER")
         command = MOVE;
@@ -31,17 +33,16 @@ Command::Command(std::string commandString) {
 
     iss >> robotNumber;
 
-    char c = iss.peek();
     int x,y;
-    while(c != EOF) {
+    while(!iss.eof()) {
+        char c = iss.get();
         if(c == '(') {
-            iss.ignore(1);
             iss >> x;
             iss.ignore(1);
             iss >> y;
             position = Position(x, y);
+            break;
         }
-        iss.ignore(1);
     }
 
 };
