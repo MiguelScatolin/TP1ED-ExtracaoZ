@@ -22,9 +22,9 @@ Map::Map(ifstream &mapFile) {
 
 Map::~Map() {
   for (int i = 0; i < xSize; i++)
-    free(map[i]);
+    delete[] map[i];
 
-  free(map);
+  delete[] map;
 }
 
 void Map::Print() {

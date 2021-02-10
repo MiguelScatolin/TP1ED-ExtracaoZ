@@ -39,8 +39,9 @@ List<T>::~List() {
         delete p;
         p = head->GetNext();
     }
-    size = 0;
     tail = head;
+    size = 0;
+    delete head;
 }
 
 template<class T>
